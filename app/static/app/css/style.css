@@ -1,0 +1,44 @@
+.goodness a{
+    text-decoration: none;
+    
+}
+
+.zaferanbgpro{
+    background-color: #fff;
+    background-image: linear-gradient(#835623 , #fff);
+    background-image: -webkit-linear-gradient(#835623 , #fff);
+    background-image: -moz-linear-gradient(#835623 , #fff);
+    background-image: -ms-linear-gradient(#835623 , #fff);
+    background-image: -o-linear-gradient(#835623 , #fff);
+    padding-top: 30px;
+    border-radius: 50px ;
+}
+.smbg{
+    background-color: #fff;
+    background-image: linear-gradient(#835623,#fff);
+    background-image: -webkit-linear-gradient(#835623,#fff);
+    background-image: -moz-linear-gradient(#835623,#fff);
+    background-image: -ms-linear-gradient(#835623,#fff);
+    background-image: -o-linear-gradient(#835623,#fff);
+    padding-top: 30px;
+    border-radius: 50px ;
+}
+.khoshkbarbgpro{
+    background-color: #fff;
+    background-image: linear-gradient(#835623,#fff);
+    background-image: -webkit-linear-gradient(#835623,#fff);
+    background-image: -moz-linear-gradient(#835623,#fff);
+    background-image: -ms-linear-gradient(#835623,#fff);
+    background-image: -o-linear-gradient(#835623,#fff);
+    padding-top: 30px;
+    border-radius: 50px ;
+}
+.mlkpro{
+    color: #636362;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 15px;
+    width: 43%;
+    margin: 0 auto;
+    text-align: center;
+}

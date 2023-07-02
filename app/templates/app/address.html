@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}آدرس{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <h3>خوش آمدید <span class="text-capitalize">{{request.user}}</span></h3>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">پروفایل</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">آدرس </a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-9 0ffset-sm-1 text-center">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-sm-6">
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <h3>آدرس{{forloop.counter}}</h3>
+                            <p>{{ad.name}}:نام</p>
+                            <p>{{ad.locality}}:محله</p>
+                            <p>{{ad.mobile}}:موبایل</p>
+                            <p>{{ad.city}}:شهر</p>
+                            <p>{{ad.state}}:استان</p>
+                            <p>{{ad.zipcode}}:کد پستی</p>
+                            <p class="text-center"><a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">ویرایش</a></p>
+                        </div>  
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

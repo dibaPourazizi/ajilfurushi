@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}checkout{% endblock title %}
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-{{msg.tags}}" role="alert">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4>خلاصه سفارش</h4>
+            <hr>
+            {% for item in caart_item %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>محصول: {{item.product.name}}</h5>
+                    <p>مقدار: {{item.quanntity}}</p>
+                    <p class="fw-bold">قیمت: {{item.product.discounted_price}}</p>
+
+                </div>
+            </div>
+        {% endfor %}
+        <p class="fw-bold">ارزش نهایی +100000.تومان={{totalamount}}</p>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>آدرس ارسال را انتخاب کنید</h4>
+            <hr>
+            <form method="post" id="myform">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div class="card">
+                    <div class="card-body">
+                    <h5>{{add.name}}</h5>
+                    <p>موبایل : </p>
+                    <p>{{ad.locality}} {{ad.city}} {{ad.state}} - {{ad.zipcode}}</p>
+
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-5">
+                    <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label class="form-check-label fw-bold " for="custadd{{forloop.counter}}">
+                       آدرس: {{forloop.counter}} 
+                    </label>
+                </div>
+                {% endfor %}
+                    <div class="form-check mb-3">
+                        <label for="totamount" class="form-label">ارزش کل</label>
+                        <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">ادامه</button>
+
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
